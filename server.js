@@ -4,12 +4,13 @@ const path = require("path");
 const PORT = 3000;
 
 app.use(express.static(path.join(__dirname, "public")));
+
+const inventoryRouter = require("./routes/inventoryRouter");
+
 app.use(express.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 
-app.get("/", (req, res) => {
-  res.render("barInventory");
-});
+app.use("/", inventoryRouter);
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);

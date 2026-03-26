@@ -12,7 +12,23 @@
     <main>
         <form action="/" method="POST">
             <input type="text" name="name" placeholder="Name" required>
-            <input type="text" name="type" placeholder="Type" required>
+            <select id="drink" name="category" required>
+                <option value="" disabled selected>Category</option>
+                <option value="beer">Beer</option>
+                <option value="wine">Wine</option>
+                <option value="tequila">Tequila</option>
+                <option value="vodka">Vodka</option>
+                <option value="whiskey">Whiskey</option>
+                <option value="rum">Rum</option>
+                <option value="gin">Gin</option>
+                <option value="cognac/cordials">Cognac/Cordials</option>
+            </select>
+            <select id="subcategory" name="subcategory" required>
+                <option value="" disabled selected>Sub Category</option>
+                <option value="blanco">Blanco</option>
+                <option value="reposado">Reposado</option>
+                <option value="añejo">Añejo</option>
+            </select>
             <input type="number" name="quantity" placeholder="Quantity" required min="0">
             <button type="submit">Add Item</button>
         </form>
@@ -20,18 +36,20 @@
             <thead>
                 <tr>
                     <th>Name</th>
-                    <th>Type</th>
+                    <th>Category</th>
+                    <th>Sub Category</th>
                     <th>Quantity</th>
                 </tr>
             </thead>
             <tbody>
-                <% /*inventory.forEach(item => { %>
+                <% inventory.forEach(item => { %>
                     <tr>
                         <td><%= item.name %></td>
-                        <td><%= item.type %></td>
+                        <td><%= item.category %></td>
+                        <td><%= item.subcategory %></td>
                         <td><%= item.quantity %></td>
                     </tr>
-                <% })*/ %>
+                <% }) %>
             </tbody>
         </table>
     </main>

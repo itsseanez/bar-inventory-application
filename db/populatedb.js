@@ -40,6 +40,18 @@ const SQL = `
     ('Reposado', 1),
     ('Añejo', 1);
 
+    --Beer
+    INSERT INTO items (name, quantity, category_id) VALUES
+    ('Bud Light', 20, 6),
+    ('Coors Light', 18, 6),
+    ('Corona', 15, 6);
+
+    --Wine
+    INSERT INTO items (name, quantity, category_id) VALUES
+    ('Cabernet Sauvignon', 10, 7),
+    ('Chardonnay', 8, 7),
+    ('Pinot Noir', 5, 7);
+
     --Tequila
     INSERT INTO items (name, quantity, category_id, subcategory_id) VALUES
     ('Don Julio Blanco', 12, 1, 1),
@@ -81,18 +93,6 @@ const SQL = `
     INSERT INTO items (name, quantity, category_id) VALUES
     ('Bombay Sapphire', 7, 5),
     ('Tanqueray', 6, 5);
-
-    --Beer
-    INSERT INTO items (name, quantity, category_id) VALUES
-    ('Bud Light', 20, 6),
-    ('Coors Light', 18, 6),
-    ('Corona', 15, 6);
-
-    --Wine
-    INSERT INTO items (name, quantity, category_id) VALUES
-    ('Cabernet Sauvignon', 10, 7),
-    ('Chardonnay', 8, 7),
-    ('Pinot Noir', 5, 7);
 
     --Cognac/Cordials
     INSERT INTO items (name, quantity, category_id) VALUES
