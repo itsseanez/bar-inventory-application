@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bar Inventory Application</title>
+</head>
+<body>
+    <header>
+        <h1>Bar Inventory</h1>
+    </header>
+    <main>
+        <form action="/" method="POST">
+            <input type="text" name="name" placeholder="Name" required>
+            <input type="text" name="type" placeholder="Type" required>
+            <input type="number" name="quantity" placeholder="Quantity" required min="0">
+            <button type="submit">Add Item</button>
+        </form>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Quantity</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% /*inventory.forEach(item => { %>
+                    <tr>
+                        <td><%= item.name %></td>
+                        <td><%= item.type %></td>
+                        <td><%= item.quantity %></td>
+                    </tr>
+                <% })*/ %>
+            </tbody>
+        </table>
+    </main>
+    <link rel="stylesheet" href="/styles.css">
+</body>
+</html>
