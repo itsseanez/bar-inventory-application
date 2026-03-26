@@ -12,9 +12,10 @@ async function getItems(req, res) {
 
 async function addItem(req, res) {
     const { name, category, subcategory, quantity } = req.body;
+    if (!subcategory) subcategory = null;
     try {
         await db.insertItem(name, category, subcategory, quantity);
-        res.redirect("/inventory");
+        res.redirect("/");
     } catch (err) {
         console.error("Error adding item:", err);
         res.status(500).send("Internal Server Error");

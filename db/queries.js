@@ -12,8 +12,32 @@ async function getAllItems() {
   return rows;
 }
 
-async function insertItem(name, category, subcategory, quantity) {
-  await pool.query("INSERT INTO items (name, category, subcategory, quantity) VALUES ($1, $2, $3, $4)", [name, category, subcategory, quantity]);
+async function insertItem(name, categoryName, subcategoryName, quantity) {
+    // 1️⃣ Get category ID
+    const categoryRes = await pool.query(
+        "SELECT id FROM categories WHERE name = $1",
+        [categoryName]
+    );
+    if (categoryRes.rows.length === 0) throw new Error("Category not found");
+    const category_id = categoryRes.rows[0].id;
+
+    // 2️⃣ Get subcategory ID (optional)
+    let subcategory_id = null;
+    if (subcategoryName) {
+        const subcategoryRes = await pool.query(
+            "SELECT id FROM subcategories WHERE name = $1 AND category_id = $2",
+            [subcategoryName, category_id]
+        );
+        if (subcategoryRes.rows.length > 0) {
+            subcategory_id = subcategoryRes.rows[0].id;
+        }
+    }
+
+    // 3️⃣ Insert into items
+    await pool.query(
+        "INSERT INTO items (name, quantity, category_id, subcategory_id) VALUES ($1, $2, $3, $4)",
+        [name, quantity, category_id, subcategory_id]
+    );
 }
 
 module.exports = {
