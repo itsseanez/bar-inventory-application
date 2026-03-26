@@ -20,13 +20,15 @@
                 <tr>
                     <th>ID</th>
                     <th>Name</th>
+                    <th>Category ID</th>
                 </tr>
             </thead>
             <tbody>
-                <% categories.forEach(category => { %>
+                <% subcategories.forEach(subcategory => { %>
                     <tr>
-                        <td><%= category.id %></td>
-                        <td><%= category.name %></td>
+                        <td><%= subcategory.id %></td>
+                        <td><%= subcategory.name %></td>
+                        <td><%= subcategory.category_id %></td>
                     </tr>
                 <% }) %>
             </tbody>

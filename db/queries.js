@@ -40,6 +40,11 @@ async function insertItem(name, categoryName, subcategoryName, quantity) {
     );
 }
 
+async function getAllSubCategories() {
+    const { rows } = await pool.query("SELECT * FROM subcategories");
+    return rows;
+}
+
 async function getAllCategories() {
     const { rows } = await pool.query("SELECT * FROM categories");
     return rows;
@@ -54,5 +59,6 @@ module.exports = {
   getInventory,
   insertItem,
   getAllCategories,
-  getAllItems
+  getAllItems,
+  getAllSubCategories
 };

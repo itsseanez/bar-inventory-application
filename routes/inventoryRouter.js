@@ -10,4 +10,6 @@ router.get("/categories", inventoryController.getCategories);
 
 router.get("/items", inventoryController.getItems);
 
+router.get("/subcategories", inventoryController.getSubCategories);
+
 module.exports = router;

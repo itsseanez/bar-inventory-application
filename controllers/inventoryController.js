@@ -42,10 +42,20 @@ async function getItems(req, res) {
     }
 }
 
+async function getSubCategories(req, res) {
+    try {
+        const subcategories = await db.getAllSubCategories();
+        res.render("subcategories", { subcategories });
+    } catch (err) {
+        console.error("Error fetching subcategories:", err);
+        res.status(500).send("Internal Server Error");
+    }
+}
 
 module.exports = {
     getInventory,
     addItem,
     getCategories,
-    getItems
+    getItems,
+    getSubCategories
 };
