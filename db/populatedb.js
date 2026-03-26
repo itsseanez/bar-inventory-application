@@ -36,63 +36,64 @@ const SQL = `
     ('Cognac/Cordials');
 
     INSERT INTO subcategories (name, category_id) VALUES
-    ('Blanco', 1),
-    ('Reposado', 1),
-    ('Añejo', 1);
+    ('Blanco', 3),
+    ('Reposado', 3),
+    ('Añejo', 3);
 
     --Beer
     INSERT INTO items (name, quantity, category_id) VALUES
-    ('Bud Light', 20, 6),
-    ('Coors Light', 18, 6),
-    ('Corona', 15, 6);
+    ('Bud Light', 20, 1),
+    ('Coors Light', 18, 1),
+    ('Corona', 15, 1);
 
     --Wine
     INSERT INTO items (name, quantity, category_id) VALUES
-    ('Cabernet Sauvignon', 10, 7),
-    ('Chardonnay', 8, 7),
-    ('Pinot Noir', 5, 7);
+    ('Cabernet Sauvignon', 10, 2),
+    ('Chardonnay', 8, 2),
+    ('Pinot Noir', 5, 2);
 
     --Tequila
     INSERT INTO items (name, quantity, category_id, subcategory_id) VALUES
-    ('Don Julio Blanco', 12, 1, 1),
-    ('Patrón Silver', 10, 1, 1),
-    ('Espolòn Blanco', 15, 1, 1),
-    ('Casamigos Blanco', 8, 1, 1);
+    ('Don Julio Blanco', 12, 3, 1),
+    ('Patrón Silver', 10, 3, 1),
+    ('Espolòn Blanco', 15, 3, 1),
+    ('Casamigos Blanco', 8, 3, 1);
 
     INSERT INTO items (name, quantity, category_id, subcategory_id) VALUES
-    ('Don Julio Reposado', 9, 1, 2),
-    ('Patrón Reposado', 3, 1, 2),
-    ('Casamigos Reposado', 7, 1, 2),
-    ('Herradura Reposado', 6, 1, 2),
-    ('1800 Reposado', 11, 1, 2);
+    ('Don Julio Reposado', 9, 3, 2),
+    ('Patrón Reposado', 3, 3, 2),
+    ('Casamigos Reposado', 7, 3, 2),
+    ('Herradura Reposado', 6, 3, 2),
+    ('1800 Reposado', 11, 3, 2);
 
     INSERT INTO items (name, quantity, category_id, subcategory_id) VALUES
-    ('Don Julio Añejo', 5, 1, 3),
-    ('Clase Azul Añejo', 2, 1, 3),
-    ('Patrón Añejo', 4, 1, 3);
+    ('Don Julio Añejo', 5, 3, 3),
+    ('Clase Azul Añejo', 2, 3, 3),
+    ('Patrón Añejo', 4, 3, 3);
 
     --Vodka
     INSERT INTO items (name, quantity, category_id) VALUES
-    ('Tito''s Vodka', 14, 2),
-    ('Smirnoff', 10, 2),
-    ('Grey Goose', 6, 2);
+    ('Tito''s Vodka', 14, 4),
+    ('Smirnoff', 10, 4),
+    ('Grey Goose', 6, 4);
 
     --Whiskey
     INSERT INTO items (name, quantity, category_id) VALUES
-    ('Jack Daniels', 10, 3),
-    ('Woodford Reserve', 3, 3),
-    ('Jameson', 8, 3);
+    ('Jack Daniels', 10, 5),
+    ('Woodford Reserve', 3, 5),
+    ('Jameson', 8, 5);
 
     --Rum
     INSERT INTO items (name, quantity, category_id) VALUES
-    ('Bacardi Silver', 12, 4),
-    ('Bounty', 7, 4),
-    ('Captain Morgan', 9, 4);
+    ('Bacardi Silver', 12, 6),
+    ('Bounty', 7, 6),
+    ('Captain Morgan', 9, 6);
 
     --Gin
     INSERT INTO items (name, quantity, category_id) VALUES
-    ('Bombay Sapphire', 7, 5),
-    ('Tanqueray', 6, 5);
+    ('Bombay Sapphire', 7, 7),
+    ('Tanqueray', 6, 7),
+    ('Hendrick''s', 5, 7);
 
     --Cognac/Cordials
     INSERT INTO items (name, quantity, category_id) VALUES

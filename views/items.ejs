@@ -15,6 +15,23 @@
         </div>
     </header>
     <main>
+        <form action="/items" method="POST">
+            <input type="text" name="name" placeholder="Name" required>
+            <select id="category" name="category" required>
+                <option value="" disabled selected>Category</option>
+                <% categories.forEach(category => { %>
+                    <option value="<%= category.name %>"><%= category.name %></option>
+                <% }) %>
+            </select>
+            <select id="subcategory" name="subcategory">
+                <option value="" disabled selected>Sub Category</option>
+                <% subcategories.forEach(subcategory => { %>
+                    <option value="<%= subcategory.name %>"><%= subcategory.name %></option>
+                <% }) %>
+            </select>
+            <input type="number" name="quantity" placeholder="Quantity" required min="0">
+            <button type="submit">Add Item</button>
+        </form>
         <table>
             <thead>
                 <tr>

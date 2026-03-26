@@ -12,7 +12,7 @@ async function getInventory() {
   return rows;
 }
 
-async function insertItem(name, categoryName, subcategoryName, quantity) {
+async function addItem(name, categoryName, subcategoryName, quantity) {
     // 1️⃣ Get category ID
     const categoryRes = await pool.query(
         "SELECT id FROM categories WHERE name = $1",
@@ -40,8 +40,36 @@ async function insertItem(name, categoryName, subcategoryName, quantity) {
     );
 }
 
+async function addCategory(name) {
+    await pool.query(
+        "INSERT INTO categories (name) VALUES ($1)",
+        [name]
+    );
+}
+
+async function addSubCategory(name, categoryName) {
+    // Get category ID
+    const categoryRes = await pool.query(
+        "SELECT id FROM categories WHERE name = $1",
+        [categoryName]
+    );
+    if (categoryRes.rows.length === 0) throw new Error("Category not found");
+    const category_id = categoryRes.rows[0].id;
+
+    // Insert subcategory
+    await pool.query(
+        "INSERT INTO subcategories (name, category_id) VALUES ($1, $2)",
+        [name, category_id]
+    );
+}
+
 async function getAllSubCategories() {
-    const { rows } = await pool.query("SELECT * FROM subcategories");
+    const { rows } = await pool.query(`SELECT
+        subcategories.id,
+        subcategories.name,
+        categories.name AS category
+        FROM subcategories
+        JOIN categories ON subcategories.category_id = categories.id`);
     return rows;
 }
 
@@ -57,8 +85,11 @@ async function getAllItems() {
 
 module.exports = {
   getInventory,
-  insertItem,
+  addItem,
   getAllCategories,
   getAllItems,
-  getAllSubCategories
+  getAllSubCategories,
+    addCategory,
+    addSubCategory
+
 };
