@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categories</title>
+</head>
+<body>
+    <header>
+        <h1><a href="/">Bar Inventory</a></h1>
+        <div id="link-group">
+            <a href="/items">View Items</a>
+            <a href="/categories">View Categories</a>
+        </div>
+    </header>
+    <main>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% categories.forEach(category => { %>
+                    <tr>
+                        <td><%= category.id %></td>
+                        <td><%= category.name %></td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </main>
+    <link rel="stylesheet" href="/styles.css">
+</body>
+</html>

@@ -16,6 +16,17 @@
   font-family: var(--font-family);
 }
 
+a {
+  color: var(--white-color);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--auxillary-color);
+}
+
 body {
   background-color: var(--white-color);
   color: var(--primary-color);
@@ -64,6 +75,13 @@ input:focus, select:focus {
   border: none;
 }
 
+#link-group {
+    margin-top: 0.5rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: space-around;
+}
+
 main {
     flex: 1;
     padding: 1rem;
@@ -75,7 +93,6 @@ main {
 table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 2rem;
   font-size: 0.95rem;
 }
 

@@ -26,13 +26,13 @@ const SQL = `
     );
 
     INSERT INTO categories (name) VALUES
+    ('Beer'),
+    ('Wine'),
     ('Tequila'),
     ('Vodka'),
     ('Whiskey'),
     ('Rum'),
     ('Gin'),
-    ('Beer'),
-    ('Wine'),
     ('Cognac/Cordials');
 
     INSERT INTO subcategories (name, category_id) VALUES

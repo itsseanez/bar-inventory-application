@@ -1,6 +1,6 @@
 const pool = require("./pool");
 
-async function getAllItems() {
+async function getInventory() {
   const { rows } = await pool.query(`SELECT 
     items.name,
     categories.name AS category,
@@ -40,7 +40,19 @@ async function insertItem(name, categoryName, subcategoryName, quantity) {
     );
 }
 
+async function getAllCategories() {
+    const { rows } = await pool.query("SELECT * FROM categories");
+    return rows;
+}
+
+async function getAllItems() {
+    const { rows } = await pool.query("SELECT * FROM items");
+    return rows;
+}
+
 module.exports = {
-  getAllItems,
-  insertItem
+  getInventory,
+  insertItem,
+  getAllCategories,
+  getAllItems
 };

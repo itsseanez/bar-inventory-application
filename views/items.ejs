@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Items</title>
+</head>
+<body>
+    <header>
+        <h1><a href="/">Bar Inventory</a></h1>
+        <div id="link-group">
+            <a href="/items">View Items</a>
+            <a href="/categories">View Categories</a>
+        </div>
+    </header>
+    <main>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Quantity</th>
+                    <th>Category ID</th>
+                    <th>Sub Category ID</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% items.forEach(item => { %>
+                    <tr>
+                        <td><%= item.id %></td>
+                        <td><%= item.name %></td>
+                        <td><%= item.quantity %></td>
+                        <td><%= item.category_id %></td>
+                        <td><%= item.subcategory_id %></td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </main>
+    <link rel="stylesheet" href="/styles.css">
+</body>
+</html>
