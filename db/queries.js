@@ -95,6 +95,27 @@ async function deleteSubCategory(id) {
     await pool.query("DELETE FROM subcategories WHERE id = $1", [id]);
 }
 
+async function editItem(id, name, quantity) {
+    await pool.query(
+        "UPDATE items SET name = $1, quantity = $2 WHERE id = $3",
+        [name, quantity, id]
+    );
+}
+
+async function editCategory(id, name) {
+    await pool.query(
+        "UPDATE categories SET name = $1 WHERE id = $2",
+        [name, id]
+    );
+}
+
+async function editSubCategory(id, name, category_id) {
+    await pool.query(
+        "UPDATE subcategories SET name = $1, category_id = $2 WHERE id = $3",
+        [name, category_id, id]
+    );
+}
+
 module.exports = {
   getInventory,
   addItem,
@@ -105,6 +126,8 @@ module.exports = {
     addSubCategory,
     deleteItem,
     deleteCategory,
-    deleteSubCategory
-
+    deleteSubCategory,
+    editItem,
+    editCategory,
+    editSubCategory
 };

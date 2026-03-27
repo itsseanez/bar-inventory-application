@@ -53,7 +53,7 @@ button:hover {
   background-color: var(--secondary-color);
 }
 
-.delete-btn {
+.action-btn {
   color: var(--auxillary-color);
   background-color: transparent;
   padding: 0;
@@ -61,7 +61,7 @@ button:hover {
   text-decoration: none;
 }
 
-.delete-btn:hover {
+.action-btn:hover {
   background-color: transparent;
   color: var(--primary-color);
 }

@@ -110,6 +110,42 @@ async function deleteSubCategory(req, res) {
     }
 }
 
+async function editItem(req, res) {
+    const { id } = req.params;
+    const { name, quantity } = req.body;
+    try {
+        await db.editItem(id, name, quantity);
+        res.sendStatus(200);
+    } catch (err) {
+        console.error("Error editing item:", err);
+        res.status(500).send("Internal Server Error");
+    }
+}
+
+async function editCategory(req, res) {
+    const { id } = req.params;
+    const { name } = req.body;
+    try {
+        await db.editCategory(id, name);
+        res.sendStatus(200);
+    } catch (err) {
+        console.error("Error editing category:", err);
+        res.status(500).send("Internal Server Error");
+    }
+}
+
+async function editSubCategory(req, res) {
+    const { id } = req.params;
+    const { name, category_id } = req.body;
+    try {
+        await db.editSubCategory(id, name, category_id);
+        res.sendStatus(200);
+    } catch (err) {
+        console.error("Error editing subcategory:", err);
+        res.status(500).send("Internal Server Error");
+    }
+}
+
 module.exports = {
     getInventory,
     addItem,
@@ -120,7 +156,8 @@ module.exports = {
     addSubCategory,
     deleteItem,
     deleteCategory,
-    deleteSubCategory
-
-
+    deleteSubCategory,
+    editItem,
+    editCategory,
+    editSubCategory
 };

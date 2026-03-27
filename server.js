@@ -8,6 +8,7 @@ app.use(express.static(path.join(__dirname, "public")));
 const inventoryRouter = require("./routes/inventoryRouter");
 
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 app.set("view engine", "ejs");
 
 app.use("/", inventoryRouter);
