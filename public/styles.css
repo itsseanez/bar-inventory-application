@@ -43,7 +43,7 @@ button {
   padding: 0.75rem 1.5rem;
   border-radius: 5px;
   font-size: 1rem;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
   box-shadow:
     rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
     rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
@@ -51,6 +51,19 @@ button {
 
 button:hover {
   background-color: var(--secondary-color);
+}
+
+.delete-btn {
+  color: var(--auxillary-color);
+  background-color: transparent;
+  padding: 0;
+  box-shadow: none;
+  text-decoration: none;
+}
+
+.delete-btn:hover {
+  background-color: transparent;
+  color: var(--primary-color);
 }
 
 header {
@@ -88,6 +101,11 @@ main {
     align-items: center;
     display: flex;
     flex-direction: column;
+}
+
+svg {
+    width: 2rem;
+    height: 2rem;
 }
 
 table {

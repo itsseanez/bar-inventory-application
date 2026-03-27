@@ -21,8 +21,8 @@ const SQL = `
     id SERIAL PRIMARY KEY,
     name TEXT NOT NULL,
     quantity INTEGER DEFAULT 0,
-    category_id INTEGER REFERENCES categories(id),
-    subcategory_id INTEGER REFERENCES subcategories(id)
+    category_id INTEGER REFERENCES categories(id) ON DELETE CASCADE,
+    subcategory_id INTEGER REFERENCES subcategories(id) ON DELETE CASCADE
     );
 
     INSERT INTO categories (name) VALUES

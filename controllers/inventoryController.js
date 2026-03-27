@@ -47,7 +47,7 @@ async function addSubCategory(req, res) {
 async function getCategories(req, res) {
     try {
         const categories = await db.getAllCategories();
-        res.render("categories", { categories });
+        res.render("categories", { categories, deleteCategory });
     } catch (err) {
         console.error("Error fetching categories:", err);
         res.status(500).send("Internal Server Error");
@@ -59,7 +59,7 @@ async function getItems(req, res) {
         const items = await db.getAllItems();
         const categories = await db.getAllCategories();
         const subcategories = await db.getAllSubCategories();
-        res.render("items", { items, categories, subcategories });
+        res.render("items", { items, categories, subcategories, deleteItem });
     } catch (err) {
         console.error("Error fetching items:", err);
         res.status(500).send("Internal Server Error");
@@ -70,9 +70,42 @@ async function getSubCategories(req, res) {
     try {
         const subcategories = await db.getAllSubCategories();
         const categories = await db.getAllCategories();
-        res.render("subcategories", { subcategories, categories });
+        res.render("subcategories", { subcategories, categories, deleteItem });
     } catch (err) {
         console.error("Error fetching subcategories:", err);
+        res.status(500).send("Internal Server Error");
+    }
+}
+
+async function deleteItem(req, res) {
+    const { id } = req.params;
+    try {
+        await db.deleteItem(id);
+        res.sendStatus(200);
+    } catch (err) {
+        console.error("Error deleting item:", err);
+        res.status(500).send("Internal Server Error");
+    }
+}
+
+async function deleteCategory(req, res) {
+    const { id } = req.params;
+    try {
+        await db.deleteCategory(id);
+        res.sendStatus(200);
+    } catch (err) {
+        console.error("Error deleting category:", err);
+        res.status(500).send("Internal Server Error");
+    }
+}
+
+async function deleteSubCategory(req, res) {
+    const { id } = req.params;
+    try {
+        await db.deleteSubCategory(id);
+        res.sendStatus(200);
+    } catch (err) {
+        console.error("Error deleting subcategory:", err);
         res.status(500).send("Internal Server Error");
     }
 }
@@ -84,6 +117,10 @@ module.exports = {
     getItems,
     getSubCategories,
     addCategory,
-    addSubCategory
+    addSubCategory,
+    deleteItem,
+    deleteCategory,
+    deleteSubCategory
+
 
 };
